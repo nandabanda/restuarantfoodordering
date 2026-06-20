@@ -23,11 +23,11 @@ export function GlassCard({
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay }}
+      transition={{ duration: 0.45, delay }}
       className={cn(
-        "glass-card p-5",
-        glow && "pepsi-glow",
-        hover && "transition-all duration-300 hover:border-electric-light/30 hover:shadow-lg hover:shadow-electric/10",
+        "glass-card p-6",
+        glow && "brand-glow",
+        hover && "transition-all duration-300 hover:border-electric-light/25 hover:shadow-lg hover:shadow-electric/10",
         className
       )}
     >

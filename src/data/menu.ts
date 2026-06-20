@@ -16,7 +16,7 @@ export interface MenuItem {
   description: string;
   isVeg: boolean;
   isBestseller?: boolean;
-  pepsiPairing?: string;
+  beveragePairing?: string;
 }
 
 export const menuCategories: MenuCategory[] = [
@@ -39,7 +39,7 @@ export const menuItems: MenuItem[] = [
     description: "Crispy Andhra-style fried chicken",
     isVeg: false,
     isBestseller: true,
-    pepsiPairing: "Pepsi",
+    beveragePairing: "Cola Classic",
   },
   {
     id: "m2",
@@ -49,7 +49,7 @@ export const menuItems: MenuItem[] = [
     image: "🧀",
     description: "Smoky tandoori paneer cubes",
     isVeg: true,
-    pepsiPairing: "7UP",
+    beveragePairing: "Lemon Soda",
   },
   {
     id: "m3",
@@ -60,7 +60,7 @@ export const menuItems: MenuItem[] = [
     description: "Dum-cooked aromatic basmati biryani",
     isVeg: false,
     isBestseller: true,
-    pepsiPairing: "Pepsi",
+    beveragePairing: "Cola Classic",
   },
   {
     id: "m4",
@@ -70,7 +70,7 @@ export const menuItems: MenuItem[] = [
     image: "🥘",
     description: "Fragrant veg biryani with raita",
     isVeg: true,
-    pepsiPairing: "Slice",
+    beveragePairing: "Fruit Drink",
   },
   {
     id: "m5",
@@ -81,7 +81,7 @@ export const menuItems: MenuItem[] = [
     description: "Creamy tomato-based curry",
     isVeg: false,
     isBestseller: true,
-    pepsiPairing: "Pepsi",
+    beveragePairing: "Cola Classic",
   },
   {
     id: "m6",
@@ -91,7 +91,7 @@ export const menuItems: MenuItem[] = [
     image: "🫘",
     description: "Slow-cooked black lentils",
     isVeg: true,
-    pepsiPairing: "7UP",
+    beveragePairing: "Lemon Soda",
   },
   {
     id: "m7",
@@ -104,21 +104,21 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: "m8",
-    name: "Pepsi 750ml",
+    name: "Cola Classic 750ml",
     category: "Beverages",
     price: 60,
     image: "🥤",
-    description: "Chilled Pepsi — perfect pairing",
+    description: "Chilled cola — perfect pairing",
     isVeg: true,
     isBestseller: true,
   },
   {
     id: "m9",
-    name: "7UP 750ml",
+    name: "Lemon Soda 750ml",
     category: "Beverages",
     price: 60,
     image: "🍋",
-    description: "Crisp & refreshing 7UP",
+    description: "Crisp & refreshing lemon soda",
     isVeg: true,
   },
   {
@@ -129,18 +129,18 @@ export const menuItems: MenuItem[] = [
     image: "🍮",
     description: "Warm milk dumplings in syrup",
     isVeg: true,
-    pepsiPairing: "Mirinda",
+    beveragePairing: "Orange Sparkle",
   },
   {
     id: "m11",
-    name: "Biryani + Pepsi Combo",
+    name: "Biryani + Cola Classic Combo",
     category: "Combos",
     price: 399,
     image: "⭐",
-    description: "Chicken biryani + Pepsi 750ml",
+    description: "Chicken biryani + Cola Classic 750ml",
     isVeg: false,
     isBestseller: true,
-    pepsiPairing: "Pepsi",
+    beveragePairing: "Cola Classic",
   },
   {
     id: "m12",
@@ -148,10 +148,10 @@ export const menuItems: MenuItem[] = [
     category: "Combos",
     price: 899,
     image: "👨‍👩‍👧‍👦",
-    description: "2 Biryanis + 2 Pepsi + Raita",
+    description: "2 Biryanis + 2 Cola Classic + Raita",
     isVeg: false,
     isBestseller: true,
-    pepsiPairing: "Pepsi",
+    beveragePairing: "Cola Classic",
   },
 ];
 

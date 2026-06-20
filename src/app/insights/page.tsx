@@ -14,7 +14,7 @@ import {
   consumerBehavior,
   footfallByDaypart,
   menuOpportunities,
-  pepsiProductGaps,
+  productGaps,
   restaurantSegmentation,
   topCuisines,
 } from "@/data/analytics";
@@ -31,7 +31,7 @@ export default function InsightsPage() {
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <ChartCard title="Footfall by Daypart" subtitle="Traffic & Pepsi attach rate by time of day" delay={0}>
+        <ChartCard title="Footfall by Daypart" subtitle="Traffic & beverage attach rate by time of day" delay={0}>
           <DaypartChart data={footfallByDaypart} />
         </ChartCard>
 
@@ -93,11 +93,11 @@ export default function InsightsPage() {
           </div>
         </GlassCard>
 
-        {/* Pepsi product gaps */}
+        {/* Product gaps */}
         <GlassCard delay={0.15}>
-          <h3 className="mb-4 font-semibold text-white">Pepsi Product Gaps</h3>
+          <h3 className="mb-4 font-semibold text-white">Product Gaps</h3>
           <div className="space-y-4">
-            {pepsiProductGaps.map((product) => (
+            {productGaps.map((product) => (
               <div key={product.product}>
                 <div className="mb-1 flex items-center justify-between text-sm">
                   <span className="font-medium text-white">{product.product}</span>
@@ -115,7 +115,7 @@ export default function InsightsPage() {
                     style={{ width: `${product.current}%` }}
                   />
                 </div>
-                <p className="mt-1 text-xs text-pepsi-red">Gap: {product.gap}pp to target</p>
+                <p className="mt-1 text-xs text-accent-violet">Gap: {product.gap}pp to target</p>
               </div>
             ))}
           </div>
@@ -156,7 +156,7 @@ export default function InsightsPage() {
                     className={cn(
                       "rounded-full px-2.5 py-0.5 text-[10px] font-medium",
                       opp.priority === "Critical"
-                        ? "bg-pepsi-red/20 text-pepsi-red"
+                        ? "bg-accent-red/20 text-accent-red"
                         : opp.priority === "High"
                           ? "bg-orange-500/20 text-orange-400"
                           : "bg-electric/20 text-electric-light"

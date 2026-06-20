@@ -28,7 +28,7 @@ export default function MenuPage() {
     <AppLayout>
       <Header
         title="Menu Management"
-        subtitle="Digital menu editor with Pepsi pairing intelligence"
+        subtitle="Digital menu editor with intelligent beverage pairing"
         badge="Menu Editor"
       />
 
@@ -66,7 +66,7 @@ export default function MenuPage() {
                   />
                 </div>
               ))}
-              <button className="w-full rounded-xl pepsi-gradient py-2.5 text-sm font-semibold text-white">
+              <button className="w-full rounded-xl brand-gradient py-2.5 text-sm font-semibold text-white">
                 Add Item
               </button>
             </div>
@@ -148,10 +148,10 @@ export default function MenuPage() {
                       </p>
                     </div>
                     <p className="mt-2 line-clamp-2 text-xs text-silver">{item.description}</p>
-                    {item.pepsiPairing && (
-                      <div className="mt-2 inline-flex items-center gap-1 rounded-lg bg-pepsi-red/10 px-2 py-1 text-[10px] font-medium text-pepsi-red">
+                    {item.beveragePairing && (
+                      <div className="mt-2 inline-flex items-center gap-1 rounded-lg bg-electric/10 px-2 py-1 text-[10px] font-medium text-electric-light">
                         <Sparkles className="h-3 w-3" />
-                        Pairs with {item.pepsiPairing}
+                        Pairs with {item.beveragePairing}
                       </div>
                     )}
                     <div className="mt-3 flex gap-2">

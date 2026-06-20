@@ -80,27 +80,27 @@ export default function QRMenuPage() {
         </div>
       </div>
 
-      {/* Pepsi combo prompt */}
+      {/* Beverage combo prompt */}
       <AnimatePresence>
         {showCombo && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="mx-4 mt-4 overflow-hidden rounded-xl border border-pepsi-red/20 bg-pepsi-red/5 p-4"
+            className="mx-4 mt-4 overflow-hidden rounded-xl border border-electric/20 bg-electric/5 p-4"
           >
             <div className="flex items-start justify-between gap-3">
               <div className="flex gap-3">
-                <Sparkles className="h-5 w-5 shrink-0 text-pepsi-red" />
+                <Sparkles className="h-5 w-5 shrink-0 text-electric-light" />
                 <div>
-                  <p className="text-sm font-semibold text-white">Pepsi Combo Deal!</p>
-                  <p className="text-xs text-silver">Biryani + Pepsi @ ₹349 — Save ₹50</p>
+                  <p className="text-sm font-semibold text-white">Beverage Combo Deal!</p>
+                  <p className="text-xs text-silver">Biryani + Cola Classic @ ₹349 — Save ₹50</p>
                   <button
                     onClick={() => {
                       addItem(menuItems.find((m) => m.id === "m11")!);
                       setShowCombo(false);
                     }}
-                    className="mt-2 rounded-lg bg-pepsi-red/20 px-3 py-1 text-xs font-medium text-pepsi-red"
+                    className="mt-2 rounded-lg bg-electric/20 px-3 py-1 text-xs font-medium text-electric-light"
                   >
                     Add Combo
                   </button>
@@ -162,8 +162,8 @@ export default function QRMenuPage() {
                   {formatCurrency(item.price)}
                 </p>
               </div>
-              {item.pepsiPairing && (
-                <p className="mt-1 text-[10px] text-pepsi-red">🥤 Pairs with {item.pepsiPairing}</p>
+              {item.beveragePairing && (
+                <p className="mt-1 text-[10px] text-electric-light">🥤 Pairs with {item.beveragePairing}</p>
               )}
               <button
                 onClick={() => addItem(item)}
@@ -202,7 +202,7 @@ export default function QRMenuPage() {
                   </div>
                 ))}
               </div>
-              <button className="flex w-full items-center justify-between rounded-xl pepsi-gradient px-5 py-3.5 font-semibold text-white shadow-lg">
+              <button className="flex w-full items-center justify-between rounded-xl brand-gradient px-5 py-3.5 font-semibold text-white shadow-lg">
                 <span className="flex items-center gap-2">
                   <ShoppingBag className="h-4 w-4" />
                   Place Order · {itemCount} items

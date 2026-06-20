@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060d18;
+  --background: #040810;
   --foreground: #f1f5f9;
   --navy: #0a1628;
   --navy-light: #0f1f3d;
   --electric-blue: #0054a6;
   --electric-blue-light: #0ea5e9;
-  --pepsi-red: #e4002b;
+  --accent-red: #e4002b;
+  --accent-violet: #7c3aed;
   --silver: #94a3b8;
-  --glass: rgba(15, 31, 61, 0.6);
-  --glass-border: rgba(148, 163, 184, 0.12);
+  --glass: rgba(15, 31, 61, 0.55);
+  --glass-border: rgba(148, 163, 184, 0.1);
 }
 
 @theme inline {
@@ -20,7 +21,8 @@
   --color-navy-light: var(--navy-light);
   --color-electric: var(--electric-blue);
   --color-electric-light: var(--electric-blue-light);
-  --color-pepsi-red: var(--pepsi-red);
+  --color-accent-red: var(--accent-red);
+  --color-accent-violet: var(--accent-violet);
   --color-silver: var(--silver);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -39,21 +41,21 @@ body {
 
 .glass-card {
   background: var(--glass);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 1rem;
 }
 
-.pepsi-glow {
-  box-shadow: 0 0 40px rgba(0, 84, 166, 0.15), 0 0 80px rgba(228, 0, 43, 0.05);
+.brand-glow {
+  box-shadow: 0 0 48px rgba(0, 84, 166, 0.18), 0 0 96px rgba(14, 165, 233, 0.06);
 }
 
-.pepsi-gradient {
+.brand-gradient {
   background: linear-gradient(135deg, #0054a6 0%, #0ea5e9 50%, #0054a6 100%);
 }
 
-.pepsi-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #0ea5e9 50%, #ffffff 100%);
+.brand-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #0ea5e9 45%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,21 +63,29 @@ body {
 
 .hero-gradient {
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 84, 166, 0.35), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(228, 0, 43, 0.08), transparent),
-    linear-gradient(180deg, #060d18 0%, #0a1628 100%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 84, 166, 0.4), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(124, 58, 237, 0.08), transparent),
+    linear-gradient(180deg, #040810 0%, #0a1628 100%);
 }
 
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(148, 163, 184, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.section-label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--electric-blue-light);
 }
 
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  50% { opacity: 0.85; }
 }
 
 .animate-pulse-glow {

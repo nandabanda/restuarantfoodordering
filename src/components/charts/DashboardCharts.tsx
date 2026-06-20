@@ -27,7 +27,7 @@ const tooltipStyle = {
   },
 };
 
-const COLORS = ["#0054A6", "#0EA5E9", "#E4002B", "#FFD100", "#00A651", "#FF6600"];
+const COLORS = ["#0054A6", "#0EA5E9", "#7C3AED", "#FFD100", "#00A651", "#FF6600"];
 
 interface SalesBarChartProps {
   data: { day: string; sales: number; bills?: number }[];
@@ -65,13 +65,7 @@ export function AttachRateLineChart({ data }: AttachRateLineChartProps) {
         <XAxis dataKey="week" stroke="#94A3B8" fontSize={12} />
         <YAxis stroke="#94A3B8" fontSize={12} domain={[50, 80]} tickFormatter={(v) => `${v}%`} />
         <Tooltip {...tooltipStyle} formatter={(value) => [`${value}%`, "Attach Rate"]} />
-        <Area
-          type="monotone"
-          dataKey="rate"
-          stroke="#0EA5E9"
-          fill="url(#attachGradient)"
-          strokeWidth={2}
-        />
+        <Area type="monotone" dataKey="rate" stroke="#0EA5E9" fill="url(#attachGradient)" strokeWidth={2} />
         <defs>
           <linearGradient id="attachGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#0EA5E9" stopOpacity={0.4} />
@@ -97,7 +91,31 @@ export function DaypartChart({ data }: DaypartChartProps) {
         <YAxis yAxisId="right" orientation="right" stroke="#94A3B8" fontSize={12} tickFormatter={(v) => `${v}%`} />
         <Tooltip {...tooltipStyle} />
         <Bar yAxisId="left" dataKey="footfall" fill="#0054A6" radius={[4, 4, 0, 0]} name="Footfall" />
-        <Line yAxisId="right" type="monotone" dataKey="attachRate" stroke="#E4002B" strokeWidth={2} dot={{ fill: "#E4002B" }} name="Attach Rate" />
+        <Line yAxisId="right" type="monotone" dataKey="attachRate" stroke="#7C3AED" strokeWidth={2} dot={{ fill: "#7C3AED" }} name="Attach Rate" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+interface DaypartOrdersChartProps {
+  data: { daypart: string; orders: number; spend: number }[];
+}
+
+export function DaypartOrdersChart({ data }: DaypartOrdersChartProps) {
+  return (
+    <ResponsiveContainer width="100%" height={220}>
+      <BarChart data={data}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.1)" />
+        <XAxis dataKey="daypart" stroke="#94A3B8" fontSize={11} />
+        <YAxis stroke="#94A3B8" fontSize={12} tickFormatter={(v) => `${v / 1000}K`} />
+        <Tooltip {...tooltipStyle} />
+        <Bar dataKey="orders" fill="url(#ordersGradient)" radius={[4, 4, 0, 0]} name="Orders" />
+        <defs>
+          <linearGradient id="ordersGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#0054A6" />
+          </linearGradient>
+        </defs>
       </BarChart>
     </ResponsiveContainer>
   );
@@ -117,7 +135,7 @@ export function CuisineGrowthChart({ data }: CuisineGrowthChartProps) {
         <Tooltip {...tooltipStyle} />
         <Legend />
         <Line type="monotone" dataKey="biryani" stroke="#0054A6" strokeWidth={2} name="Biryani" />
-        <Line type="monotone" dataKey="qsr" stroke="#E4002B" strokeWidth={2} name="QSR" />
+        <Line type="monotone" dataKey="qsr" stroke="#7C3AED" strokeWidth={2} name="QSR" />
         <Line type="monotone" dataKey="pizza" stroke="#FFD100" strokeWidth={2} name="Pizza" />
         <Line type="monotone" dataKey="cafe" stroke="#0EA5E9" strokeWidth={2} name="Café" />
       </LineChart>
@@ -133,16 +151,7 @@ export function SegmentationPieChart({ data }: SegmentationPieChartProps) {
   return (
     <ResponsiveContainer width="100%" height={260}>
       <PieChart>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          innerRadius={60}
-          outerRadius={90}
-          paddingAngle={4}
-          dataKey="count"
-          nameKey="segment"
-        >
+        <Pie data={data} cx="50%" cy="50%" innerRadius={60} outerRadius={90} paddingAngle={4} dataKey="count" nameKey="segment">
           {data.map((entry, index) => (
             <Cell key={entry.segment} fill={entry.color || COLORS[index % COLORS.length]} />
           ))}
@@ -155,7 +164,7 @@ export function SegmentationPieChart({ data }: SegmentationPieChartProps) {
 }
 
 interface BeverageStackChartProps {
-  data: { cuisine: string; pepsi: number; sting: number; slice: number; other: number }[];
+  data: { cuisine: string; colaClassic: number; energyDrink: number; fruitDrink: number; other: number }[];
 }
 
 export function BeverageStackChart({ data }: BeverageStackChartProps) {
@@ -167,9 +176,9 @@ export function BeverageStackChart({ data }: BeverageStackChartProps) {
         <YAxis stroke="#94A3B8" fontSize={12} tickFormatter={(v) => `${v}%`} />
         <Tooltip {...tooltipStyle} />
         <Legend />
-        <Bar dataKey="pepsi" stackId="a" fill="#0054A6" name="Pepsi" />
-        <Bar dataKey="sting" stackId="a" fill="#FFD100" name="Sting" />
-        <Bar dataKey="slice" stackId="a" fill="#FF4500" name="Slice" />
+        <Bar dataKey="colaClassic" stackId="a" fill="#0054A6" name="Cola Classic" />
+        <Bar dataKey="energyDrink" stackId="a" fill="#FFD100" name="Energy Drink" />
+        <Bar dataKey="fruitDrink" stackId="a" fill="#FF4500" name="Fruit Drink" />
         <Bar dataKey="other" stackId="a" fill="#475569" name="Other" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
@@ -195,6 +204,25 @@ export function CityBarChart({ data }: CityBarChartProps) {
             <stop offset="100%" stopColor="#0EA5E9" />
           </linearGradient>
         </defs>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+interface CohortChartProps {
+  data: { cohort: string; share: number; repeatRate: number }[];
+}
+
+export function CohortChart({ data }: CohortChartProps) {
+  return (
+    <ResponsiveContainer width="100%" height={220}>
+      <BarChart data={data}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.1)" />
+        <XAxis dataKey="cohort" stroke="#94A3B8" fontSize={11} />
+        <YAxis stroke="#94A3B8" fontSize={12} tickFormatter={(v) => `${v}%`} />
+        <Tooltip {...tooltipStyle} />
+        <Bar dataKey="share" fill="#0EA5E9" radius={[4, 4, 0, 0]} name="Share" />
+        <Bar dataKey="repeatRate" fill="#7C3AED" radius={[4, 4, 0, 0]} name="Repeat Rate" />
       </BarChart>
     </ResponsiveContainer>
   );

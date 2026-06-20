@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { RestaurantCard } from "@/components/ui/RestaurantCard";
 import { cuisineFilters, restaurants } from "@/data/restaurants";
-import { pepsiCombos } from "@/data/pepsi";
+import { beverageCombos } from "@/data/products";
 import { cn, formatCurrency } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
@@ -37,7 +37,7 @@ export default function ConsumerPage() {
     <AppLayout>
       <Header
         title="Discover & Order"
-        subtitle="Find nearby restaurants with Pepsi combo offers"
+        subtitle="Find nearby restaurants with beverage combo offers"
         badge="Consumer App"
       />
 
@@ -78,22 +78,22 @@ export default function ConsumerPage() {
         ))}
       </div>
 
-      {/* Pepsi combo offers */}
+      {/* Beverage combo offers */}
       <div className="mb-6">
         <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-white">
-          <Sparkles className="h-5 w-5 text-pepsi-red" />
-          Pepsi Combo Offers
+          <Sparkles className="h-5 w-5 text-electric-light" />
+          Beverage Combo Offers
         </h2>
         <div className="flex gap-4 overflow-x-auto pb-2">
-          {pepsiCombos.map((combo, i) => (
+          {beverageCombos.map((combo, i) => (
             <motion.div
               key={combo.id}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="w-64 shrink-0 rounded-xl border border-electric/20 bg-gradient-to-br from-electric/10 to-pepsi-red/5 p-4"
+              className="w-64 shrink-0 rounded-xl border border-electric/20 bg-gradient-to-br from-electric/10 to-accent-violet/5 p-4"
             >
-              <span className="rounded-full bg-pepsi-red/20 px-2 py-0.5 text-[10px] font-medium text-pepsi-red">
+              <span className="rounded-full bg-electric/20 px-2 py-0.5 text-[10px] font-medium text-electric-light">
                 Save ₹{combo.savings}
               </span>
               <h3 className="mt-2 font-semibold text-white">{combo.name}</h3>
@@ -119,7 +119,7 @@ export default function ConsumerPage() {
                 <span className="text-2xl">{r.image}</span>
                 <div>
                   <p className="font-semibold text-white">{r.name}</p>
-                  <p className="text-xs text-silver">Chicken Biryani + Pepsi</p>
+                  <p className="text-xs text-silver">Chicken Biryani + Cola Classic</p>
                   <p className="text-sm font-medium text-electric-light">₹349</p>
                 </div>
               </div>

@@ -45,7 +45,7 @@ export default function RestaurantDashboard() {
         <MetricCard title="Bills Generated" value={restaurantMetrics.billsGenerated} change={restaurantMetrics.billsChange} icon={FileText} delay={0.05} />
         <MetricCard title="Footfall" value={restaurantMetrics.footfall} change={restaurantMetrics.footfallChange} icon={Footprints} delay={0.1} />
         <MetricCard title="Avg Order Value" value={restaurantMetrics.avgOrderValue} change={restaurantMetrics.aovChange} icon={ShoppingCart} isCurrency delay={0.15} />
-        <MetricCard title="Pepsi Attach Rate" value={restaurantMetrics.pepsiAttachRate} change={restaurantMetrics.attachChange} icon={Percent} suffix="%" delay={0.2} accent="red" />
+        <MetricCard title="Beverage Attach Rate" value={restaurantMetrics.beverageAttachRate} change={restaurantMetrics.attachChange} icon={Percent} suffix="%" delay={0.2} accent="red" />
         <MetricCard title="Active Tables" value={`${restaurantMetrics.activeTables}/${restaurantMetrics.totalTables}`} icon={Table2} delay={0.25} accent="green" />
       </div>
 
@@ -53,7 +53,7 @@ export default function RestaurantDashboard() {
         <ChartCard title="Weekly Sales Trend" subtitle="Revenue across the week" delay={0.1}>
           <SalesBarChart data={weeklySalesTrend} />
         </ChartCard>
-        <ChartCard title="Pepsi Attach Rate Trend" subtitle="6-week performance" delay={0.15}>
+        <ChartCard title="Beverage Attach Rate Trend" subtitle="6-week performance" delay={0.15}>
           <AttachRateLineChart data={attachRateTrend} />
         </ChartCard>
       </div>
@@ -131,7 +131,7 @@ export default function RestaurantDashboard() {
                 </div>
                 <div>
                   <p className="font-semibold text-white">Menu Management</p>
-                  <p className="text-sm text-silver">Edit items, categories & Pepsi pairings</p>
+                  <p className="text-sm text-silver">Edit items, categories & beverage pairings</p>
                 </div>
               </div>
             </GlassCard>

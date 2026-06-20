@@ -3,7 +3,7 @@
 import { GlassCard } from "./GlassCard";
 import { Restaurant } from "@/data/restaurants";
 import { cn } from "@/lib/utils";
-import { MapPin, Star, Clock } from "lucide-react";
+import { MapPin, Star, TrendingUp } from "lucide-react";
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
@@ -25,7 +25,7 @@ export function RestaurantCard({
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <h3 className="font-semibold text-white group-hover:text-electric-light transition-colors">
+              <h3 className="font-semibold text-white transition-colors group-hover:text-electric-light">
                 {restaurant.name}
               </h3>
               <p className="text-sm text-silver">
@@ -55,14 +55,14 @@ export function RestaurantCard({
                 {restaurant.distance}
               </span>
               <span className="flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {restaurant.pepsiAttachRate}% Pepsi attach
+                <TrendingUp className="h-3 w-3" />
+                {restaurant.beverageAttachRate}% beverage attach
               </span>
             </div>
           )}
 
           {restaurant.offer && (
-            <div className="mt-2 inline-flex rounded-lg bg-pepsi-red/10 px-2 py-1 text-xs font-medium text-pepsi-red">
+            <div className="mt-2 inline-flex rounded-lg bg-electric/10 px-2 py-1 text-xs font-medium text-electric-light">
               {restaurant.offer}
             </div>
           )}

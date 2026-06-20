@@ -14,11 +14,12 @@ interface MetricCardProps {
   isCurrency?: boolean;
   delay?: number;
   accent?: "blue" | "red" | "green" | "purple";
+  compact?: boolean;
 }
 
 const accentColors = {
   blue: "from-electric to-electric-light",
-  red: "from-pepsi-red to-orange-500",
+  red: "from-accent-red to-orange-500",
   green: "from-emerald-500 to-teal-400",
   purple: "from-violet-500 to-purple-400",
 };
@@ -33,6 +34,7 @@ export function MetricCard({
   isCurrency,
   delay = 0,
   accent = "blue",
+  compact = false,
 }: MetricCardProps) {
   const displayValue =
     typeof value === "number"
@@ -49,10 +51,10 @@ export function MetricCard({
           accentColors[accent]
         )}
       />
-      <div className="relative flex items-start justify-between">
-        <div className="space-y-2">
-          <p className="text-sm font-medium text-silver">{title}</p>
-          <p className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+      <div className="relative flex items-start justify-between gap-3">
+        <div className="space-y-1.5">
+          <p className="text-xs font-medium uppercase tracking-wide text-silver">{title}</p>
+          <p className={cn("font-bold tracking-tight text-white", compact ? "text-xl md:text-2xl" : "text-2xl md:text-3xl")}>
             {prefix}
             {displayValue}
             {suffix}
@@ -64,22 +66,13 @@ export function MetricCard({
                 change >= 0 ? "text-emerald-400" : "text-red-400"
               )}
             >
-              {change >= 0 ? (
-                <TrendingUp className="h-3 w-3" />
-              ) : (
-                <TrendingDown className="h-3 w-3" />
-              )}
-              {Math.abs(change)}% vs yesterday
+              {change >= 0 ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
+              {Math.abs(change)}% vs prior period
             </div>
           )}
         </div>
-        <div
-          className={cn(
-            "flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br shadow-lg",
-            accentColors[accent]
-          )}
-        >
-          <Icon className="h-5 w-5 text-white" />
+        <div className={cn("flex shrink-0 items-center justify-center rounded-xl bg-gradient-to-br shadow-lg", compact ? "h-10 w-10" : "h-11 w-11", accentColors[accent])}>
+          <Icon className={cn("text-white", compact ? "h-4 w-4" : "h-5 w-5")} />
         </div>
       </div>
     </GlassCard>

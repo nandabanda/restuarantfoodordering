@@ -7,7 +7,7 @@ export const restaurantMetrics = {
   footfallChange: 15.1,
   avgOrderValue: 596,
   aovChange: 3.8,
-  pepsiAttachRate: 68,
+  beverageAttachRate: 68,
   attachChange: 5.2,
   activeTables: 12,
   totalTables: 18,
@@ -15,16 +15,16 @@ export const restaurantMetrics = {
 
 export const topSellingItems = [
   { name: "Hyderabadi Chicken Biryani", orders: 48, revenue: 16752 },
-  { name: "Biryani + Pepsi Combo", orders: 36, revenue: 14364 },
+  { name: "Biryani + Cola Classic Combo", orders: 36, revenue: 14364 },
   { name: "Chicken 65", orders: 32, revenue: 9248 },
-  { name: "Pepsi 750ml", orders: 89, revenue: 5340 },
+  { name: "Cola Classic 750ml", orders: 89, revenue: 5340 },
   { name: "Butter Chicken", orders: 24, revenue: 7896 },
 ];
 
 export const activeOffers = [
   {
     id: "o1",
-    title: "Biryani + Pepsi @ ₹349",
+    title: "Biryani + Cola @ ₹349",
     discount: "₹50 off",
     validUntil: "30 Jun 2026",
     redemptions: 42,
@@ -32,7 +32,7 @@ export const activeOffers = [
   },
   {
     id: "o2",
-    title: "Free Pepsi with Family Pack",
+    title: "Free Beverage with Family Pack",
     discount: "Free beverage",
     validUntil: "15 Jul 2026",
     redemptions: 28,
@@ -51,17 +51,17 @@ export const activeOffers = [
 export const aiRecommendations = [
   {
     id: "ai1",
-    title: "Boost Pepsi attach at lunch",
+    title: "Boost beverage attach at lunch",
     insight: "Only 52% attach rate during 12–3 PM vs 74% at dinner. Push combo prompts on QR menu.",
     impact: "High" as const,
     action: "Enable lunch combo banner",
   },
   {
     id: "ai2",
-    title: "Upsell Sting with starters",
-    insight: "Chicken 65 orders rarely include beverages. Sting pairs well with spicy starters.",
+    title: "Upsell energy drinks with starters",
+    insight: "Chicken 65 orders rarely include beverages. Energy drinks pair well with spicy starters.",
     impact: "Medium" as const,
-    action: "Add Sting suggestion on starters",
+    action: "Add energy drink suggestion on starters",
   },
   {
     id: "ai3",
@@ -71,17 +71,6 @@ export const aiRecommendations = [
     action: "Send bill reminder",
   },
 ];
-
-export const pepsiCommandMetrics = {
-  totalRestaurants: 4769,
-  activeOutlets: 4234,
-  dailyBills: 71200,
-  estimatedFootfall: 284000,
-  pepsiAttachRate: 64.8,
-  menuPenetration: 78.2,
-  newProductAdoption: 58.4,
-  promoROI: 3.4,
-};
 
 export const qrMenuStatus = {
   isPublished: true,

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pepsi HORECA Pulse | Restaurant Commerce & Intelligence OS",
+  title: "ServePulse™ | Restaurant Commerce & Consumer Intelligence",
   description:
-    "Billing. QR Menus. Ordering. Promotions. Trade Deals. Consumer Intelligence — for Pepsi India HORECA.",
+    "AI-powered platform for intelligent billing, digital menus, consumer ordering, promotions, loyalty, trade engagement, and real-time business intelligence.",
 };
 
 export default function RootLayout({
@@ -24,10 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-foreground">{children}</body>
     </html>
   );

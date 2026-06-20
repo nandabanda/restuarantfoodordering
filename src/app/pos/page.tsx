@@ -4,7 +4,7 @@ import { AppLayout } from "@/components/layout/AppLayout";
 import { Header } from "@/components/layout/Header";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { menuItems, posTables } from "@/data/menu";
-import { pepsiCombos } from "@/data/pepsi";
+import { beverageCombos } from "@/data/products";
 import { cn, formatCurrency } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -75,7 +75,7 @@ export default function POSPage() {
     );
   };
 
-  const addCombo = (combo: (typeof pepsiCombos)[0]) => {
+  const addCombo = (combo: (typeof beverageCombos)[0]) => {
     setCart((prev) => [
       ...prev,
       { id: combo.id, name: combo.name, price: combo.price, quantity: 1 },
@@ -92,7 +92,7 @@ export default function POSPage() {
     <AppLayout>
       <Header
         title="POS Billing"
-        subtitle="Paradise Biryani · Fast checkout with Pepsi upsell"
+        subtitle="Paradise Biryani · Fast checkout with intelligent beverage upsell"
         badge="Live POS"
       />
 
@@ -141,17 +141,17 @@ export default function POSPage() {
             ))}
           </div>
 
-          {/* Pepsi combo recommendation */}
+          {/* Beverage combo recommendation */}
           <GlassCard glow className="border-electric/20">
             <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pepsi-red/20">
-                <Sparkles className="h-5 w-5 text-pepsi-red" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-violet/20">
+                <Sparkles className="h-5 w-5 text-accent-violet" />
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-white">Pepsi Combo Recommendation</p>
+                <p className="font-semibold text-white">Beverage Combo Recommendation</p>
                 <p className="text-sm text-silver">Boost attach rate — suggest with every biryani order</p>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {pepsiCombos.slice(0, 2).map((combo) => (
+                  {beverageCombos.slice(0, 2).map((combo) => (
                     <button
                       key={combo.id}
                       onClick={() => addCombo(combo)}
@@ -261,7 +261,7 @@ export default function POSPage() {
               )}
             >
               <Tag className="h-4 w-4" />
-              {promoApplied ? "PEPSI10 Applied (10% off)" : "Apply PEPSI10 Promo"}
+              {promoApplied ? "COMBO10 Applied (10% off)" : "Apply COMBO10 Promo"}
             </button>
 
             {/* Totals */}
@@ -315,7 +315,7 @@ export default function POSPage() {
             <button
               onClick={() => setShowInvoice(true)}
               disabled={cart.length === 0}
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl pepsi-gradient py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.02] disabled:opacity-40 disabled:hover:scale-100"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl brand-gradient py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.02] disabled:opacity-40 disabled:hover:scale-100"
             >
               <Receipt className="h-4 w-4" />
               Generate Bill
@@ -379,7 +379,7 @@ export default function POSPage() {
                 </div>
                 {promoApplied && (
                   <div className="flex justify-between text-green-600">
-                    <span>PEPSI10 Discount</span>
+                    <span>COMBO10 Discount</span>
                     <span>-{formatCurrency(discount)}</span>
                   </div>
                 )}
@@ -397,7 +397,7 @@ export default function POSPage() {
                 </div>
               </div>
               <p className="mt-4 text-center text-xs text-gray-400">
-                Thank you! Enjoy your meal with Pepsi 🥤
+                Thank you! Enjoy your meal 🥤
               </p>
               <button
                 onClick={() => {
